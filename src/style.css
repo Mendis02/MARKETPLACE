@@ -1,0 +1,18 @@
+body{
+    background-color: #28282B;
+}
+
+.nav{
+    display: flex;
+    background-color: 	#1B1212;
+    align-items: centre;
+    margin: -10px -10px;
+}
+
+.nav-title{
+    color:aliceblue;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 25px 30px;
+    font-size:30px;
+}
