@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react";
+import {
+    BrowserRouter as Router,
+    Link
+    } from "react-router-dom";
 
-const API_ENDPOINT = 'https://dummyjson.com/products'
+const API_ENDPOINT = 'https://dummyjson.com/products/'
 
 const PostsMain = () => {
-    const [post, setPost] = useState({})
+    const [post, setPost] = useState([])
 
     useEffect(() => {
         getDataFromApi()
@@ -13,16 +17,21 @@ const PostsMain = () => {
         fetch(API_ENDPOINT)
             .then((response) => response.json())
             .then((data) => setPost(data))
-            .catch(err => console.error(err))
+            .catch(err => console.error(err));
     }
 
     return (
-        <div>
-            {post?.map(p =>
-                <div key={p.products.id}>
-                    <h1>{p.products.title}</h1>
-                    {/* <img src = {p.thumbnail}/> */}
-                    {/* <h2>{p.price}</h2> */}
+        <div className = "card">
+            {post.products?.map(p =>
+                <div key={p.id}>
+                    <h1>{p.id}</h1>
+                    <Router>
+                        <Link to = {"/" + p.id}>{p.title}</Link>
+                    </Router>
+                    {/* <img src = {p.thumbnail}/>
+                    <h2>Price: ${p.price}</h2>
+                    <h3>Rating: {p.rating}</h3>
+                    <h3>{p.stock}</h3> */}
                 </div>
             )}
         </div>
