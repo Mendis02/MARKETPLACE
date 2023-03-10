@@ -7,7 +7,7 @@ import {
 const API_ENDPOINT = 'https://dummyjson.com/products/'
 
 const PostsMain = () => {
-    const [post, setPost] = useState([])
+    const [post, setPost] = useState({})
 
     useEffect(() => {
         getDataFromApi()
